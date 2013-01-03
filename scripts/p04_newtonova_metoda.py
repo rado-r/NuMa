@@ -33,7 +33,7 @@ def newtonova_metoda(a, b, presnost, verbose):
 
     while k < 20:
         k += 1
-        # vipocita nasledujuce x
+        # vypocita nasledujuce x
         x1 = x - (funkcia(x) / prva_derivacia(x))
         if abs(x1 - x) <= presnost:
             break
@@ -55,8 +55,8 @@ if __name__ == '__main__':
                         "(Musi byt mensie ako koniec intervalu)")
     parser.add_argument("b", type=float, help="Koniec intervalu." \
                         "(Musi byt vacsi ako zaciatok intervalu)")
-    parser.add_argument("presnost", type=int, help="Na kolko desatinych miest."\
-                        "(Musi byt vacsie ako 0)", default=2)
+    parser.add_argument("presnost", type=int, help="Na kolko desatinych " \
+                        "miest. (Musi byt vacsie ako 0)", default=2)
     #parser.add_argument("funkcia", default="", help="Funkcia ktorej koren chceme" \
     #                    "vypocitat. Nemusi byt zadana.")
     args = parser.parse_args()
