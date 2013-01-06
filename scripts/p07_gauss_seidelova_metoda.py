@@ -2,8 +2,6 @@
 import argparse
 import numpy as np
 
-import p05_normy_matice as normy
-
 def gauss_seidel(A, b, x, presnost=2, verbose=False):
     k = 0
     x_tmp = x[:]
@@ -25,14 +23,14 @@ def gauss_seidel(A, b, x, presnost=2, verbose=False):
                 sum_2 += A[i][j] * x[j]
             x_tmp[i] = 1.0/A[i][i] * float(b[i] - sum_1 - sum_2)
 
+        temp = zip(x_tmp, x)
+        odchylka = max([abs(prvok[0] - prvok[1]) for prvok in temp])
+
         if verbose:
-            print("Momentalna presnost: {}".format(
-                abs(normy.riadkova_norma(np.array(x_tmp)) -
-                    normy.riadkova_norma(np.array(x)))))
+            print("Momentalna presnost: {}".format(odchylka))
             print("k{}\nx = {}".format(k, x))
 
-        if abs(normy.riadkova_norma(np.array(x_tmp)) -
-               normy.riadkova_norma(np.array(x))) <= presnost and k > 2:
+        if odchylka <= presnost and k > 2:
             print('-'*20)
             print("Vysledok je: {}".format(x_tmp))
             print("Pouzitych bolo {} iteracii a presnost "\

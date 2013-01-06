@@ -9,6 +9,7 @@ def abs_sum(zoznam):
     return sum([abs(prvok) for prvok in zoznam])
 
 def riadkova_norma(matica):
+    #TODO pre vektory funguje inac ako pre matice neviem ci to tak ma byt
     ''' Vrati vysledok z riadkovej normy matice (maximum zo suctov prvkov v
         riadkoch matice)
 
@@ -26,10 +27,10 @@ def riadkova_norma(matica):
             temp.append(abs_sum(riadok))
         return max(temp)
     else:
-        return abs_sum(matica)
+        return max(matica)
 
 def stlpcova_norma(matica):
-    #TODO pre vektory funguje rovnako ako riadkova neviem ako to ma byt
+    #TODO pre vektory funguje inac ako pre matice neviem ci to tak ma byt
     ''' Vrati vysledok zo stlpcovej normy matice (maximum zo suctov prvkov v
         jednotlivych stlpcoch matice
 
@@ -44,7 +45,7 @@ def stlpcova_norma(matica):
             temp.append(sum([abs(prvok) for prvok in stlpec]))
         return max(temp)
     else:
-        return abs_sum(matica)
+        return max(matica)
 
 def frobeniova_norma(matica):
     #TODO nefunguje na vektory
