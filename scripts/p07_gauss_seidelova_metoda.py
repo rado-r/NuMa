@@ -31,13 +31,15 @@ def gauss_seidel(A, b, x, presnost=2, verbose=False):
             print("k{}\nx = {}".format(k, x))
 
         if odchylka <= presnost and k > 2:
-            print('-'*20)
-            print("Vysledok je: {}".format(x_tmp))
-            print("Pouzitych bolo {} iteracii a presnost "\
-                  "vysledku je +-{}".format(k, presnost))
+            if verbose:
+                print('-'*20)
+                print("Vysledok je: {}".format(x_tmp))
+                print("Pouzitych bolo {} iteracii a presnost "\
+                      "vysledku je +-{}".format(k, presnost))
             break
 
         x = x_tmp[:]
+    return x
 
 '''
 A = [[11, 2,  1],
