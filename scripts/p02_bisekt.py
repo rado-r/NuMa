@@ -3,6 +3,9 @@
 Created on 06.11.2012
 
 @author: rado
+
+Metoda bisekcie alebo Metoda polenia intervalu.
+
 '''
 import argparse
 import math
