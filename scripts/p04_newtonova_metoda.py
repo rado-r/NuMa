@@ -3,6 +3,10 @@
 Created on 06.11.2012
 
 @author: rado
+
+Newtonova metoda alebo metoda dotycnic
+ Potrebujeme poznat prvu aj druhu derivaciu funkcie.
+
 '''
 import argparse
 import math
