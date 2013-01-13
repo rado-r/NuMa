@@ -9,8 +9,9 @@ import math
 
 def funkcia(x):
     #return x + math.sin(x) - 2
-    #return 10 * math.cos(x-1) - (x**2) + 2 * x - 1
-    return x**2 - x - (6.0/7.0)*math.log(x)
+    return 10 * math.cos(x-1) - (x**2) + 2 * x - 1
+    #math.log(x) je ln ak chceme naozaj log musime pouzit math.log10(x)
+    #return x**2 - x - (6.0/7.0)*math.log(x)
 
 def bisekt(a, b, presnost, verbose=False):
     """
@@ -38,8 +39,8 @@ def bisekt(a, b, presnost, verbose=False):
             a = x
         if b - a <= presnost:
             break
-    
-        print("{}, {}, {}".format(a, b, presnost))
+        if verbose:
+            print("{}, {}, {}".format(a, b, presnost))
     if verbose:
         print("Vysledok je: {} a bolo pouzitych {} opakovani.".format(
                x, k))
