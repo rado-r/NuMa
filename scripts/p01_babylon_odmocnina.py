@@ -7,8 +7,9 @@ Created on 29.10.2012
 import argparse
 
 def babylon(S, odhad, presnost, verbose=False):
-    x0 = odhad
-    i = temp = 0
+    x0 = float(odhad)
+    i = 0
+    temp = 0.0
     # ak bude absolutna chyba vacsia ako vyzadovana prestnost
     while abs(float(x0) - float(temp)) >= 10**(-presnost):
         i += 1
