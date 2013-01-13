@@ -3,6 +3,9 @@
 Created on 06.11.2012
 
 @author: rado
+
+Metoda regula falsi alebo tie Metoda secnic.
+
 '''
 import argparse
 import math
