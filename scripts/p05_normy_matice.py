@@ -1,6 +1,6 @@
 #!/usr/bin/python
-
 import numpy as np
+
 
 def abs_sum(zoznam):
     """
@@ -21,13 +21,19 @@ def riadkova_norma(matica):
     32
     '''
     matica = np.array(matica)
-    if type(matica[0]) == list:
-        temp = []
-        for riadok in matica:
-            temp.append(abs_sum(riadok))
-        return max(temp)
-    else:
-        return max(matica)
+    temp = []
+    for riadok in matica:
+        temp.append(abs_sum(riadok))
+    return max(temp)
+
+def check_norms(A):
+    if riadkova_norma(A) < 1:
+#        print(riadkova_norma(A))
+        return True
+    if stlpcova_norma(A) < 1:
+        return True
+    if frobeniova_norma(A) < 1:
+        return True
 
 def stlpcova_norma(matica):
     #TODO pre vektory funguje inac ako pre matice neviem ci to tak ma byt
@@ -39,13 +45,10 @@ def stlpcova_norma(matica):
     11
     '''
     matica = np.array(matica).transpose()
-    if type(matica[0]) == list:
-        temp = []
-        for stlpec in matica:
-            temp.append(sum([abs(prvok) for prvok in stlpec]))
-        return max(temp)
-    else:
-        return max(matica)
+    temp = []
+    for stlpec in matica:
+        temp.append(sum([abs(prvok) for prvok in stlpec]))
+    return max(temp)
 
 def frobeniova_norma(matica):
     #TODO nefunguje na vektory
@@ -59,3 +62,14 @@ def frobeniova_norma(matica):
     for riadok in matica:
         temp.append(sum([pow(prvok, 2) for prvok in riadok]))
     return np.sqrt(sum(temp))
+
+def iter_tvar(M):
+    M_pom = np.array([[float(x) for x in range(len(M))] for a  in range(len(M))])
+    for i in range(len(M)):
+        for j in range(len(M)):
+            M_pom[i][j] = float(-1) * float(M[i][j]) / float(M[i][i])
+            print M_pom[i][j]
+            if i == j:
+                M_pom[i][j] = 0.0
+   # print M_pom
+    return M_pom

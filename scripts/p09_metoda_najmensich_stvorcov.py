@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import division
 import argparse
 from p07_gauss_seidelova_metoda import gauss_seidel
 
@@ -9,6 +10,8 @@ def stvorce(x, fx, verbose=False):
     b = [sum(fx), sum([(p[0] * p[1]) for p in zip(x, fx)])]
     x = [0 for i in range(len(x))]
 
+    #print(A)
+    #print b
     vysl = gauss_seidel(A, b, x, 5)
     if verbose:
         print("Vysledkom je priamka: r(x) = {}{:+}x".format(vysl[0], vysl[1]))

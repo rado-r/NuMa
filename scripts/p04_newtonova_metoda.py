@@ -12,17 +12,19 @@ import argparse
 import math
 
 def funkcia(x):
-    return x + math.sin(x) - 2
+    #return x + math.sin(x) - 2
     #return 10 * math.cos(x-1) - (x**2) + 2 * x - 1
     #return x**2 - x - (6.0/7.0)*math.log(x)    // log je v skutocnosti ln ( klasicky log je log10)
     #return x + math.log(x) - 2
+    return x**2 - math.cos(x)
 
 def prva_derivacia(x):
-    return 1 + math.cos(x)
+    #return 1 + math.cos(x)
+    return 2 * x + math.sin(x)
 
 def druha_derivacia(x):
-    return -math.sin(x)
-
+    #return -math.sin(x)
+    return 2 + math.cos(x)
 def newtonova_metoda(a, b, presnost, verbose):
     """
         Hladanie korenov funkcie pomocou newtonovej metody

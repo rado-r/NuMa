@@ -1,13 +1,22 @@
 #!/usr/bin/python
 import argparse
 import numpy as np
+import sys
 
 import p05_normy_matice as normy
+
 
 def jacoby(A, b, x, presnost=2, verbose=False):
     k = 0
     x_tmp = x[:]
     presnost = 10**(-presnost)
+
+    M_iter = normy.iter_tvar(A)
+
+
+    if not normy.check_norms(M_iter):
+        print("Matica nesplna konvergencne kriterium")
+        sys.exit(1)
 
     if verbose:
         print("A: {}".format(A))

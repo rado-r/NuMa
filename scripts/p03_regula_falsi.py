@@ -14,8 +14,9 @@ def funkcia(x):
     #return x + math.sin(x) - 2
     #return 10 * math.cos(x-1) - (x**2) + 2 * x - 1
     #return x**2 - x - (6.0/7.0)*math.log(x)    // log je v skutocnosti ln ( klasicky log je log10)
-    return x + math.log(x) - 2
-                     
+    #return x + math.log(x) - 2
+    return x**2 - math.cos(x)
+
 def regula_falsi(a, b, presnost, verbose=False):
     """
         Hladanie korenov funkcie pomocou metody regula falsi (metoda secnic).
